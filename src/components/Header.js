@@ -1,18 +1,20 @@
 //import React from 'react' (No more required for every react component)
 //creating a header component (via arrow function)
 import PropTypes from 'prop-types'
+//Bring in the button component for use here
+import Button from './Button';
 
-
-const Header = () => {
+const Header = ({ title }) => {
   return (
-    <header>
-      <h1>Task Tracker</h1>
+    <header className='header'>
+      <h1>{title}</h1>
+      <Button color='green' text='Add' />
     </header>
   );
 }
 
 Header.defaultProps = {
-    title: 'Task Tracker',
+    title: 'React Task Tracker',
 }
 
 Header.propTypes = {
