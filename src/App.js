@@ -30,7 +30,7 @@ const App = () => {
     }
   ])
 
-  // Delete Task (Showing all tasks, excluding the task with the :id)
+  // Delete Task (Show all tasks, excluding the task with the :id)
   const deleteTask = (id) => {
     setTasks(tasks.filter((task) => task.id !== id));
   }
@@ -38,7 +38,7 @@ const App = () => {
   return (
     <div className="container">
       <Header />
-      <Tasks tasks={tasks} onDelete={deleteTask} />
+      {tasks.length > 0 ? <Tasks tasks={tasks} onDelete={deleteTask} /> : 'No Task(s) to Show'}
     </div>
   )
 }
