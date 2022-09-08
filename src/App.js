@@ -10,6 +10,9 @@ import { useState } from 'react'
 import AddTask from './components/AddTask';
 
 const App = () => {
+  //toggle the AddTask component display
+  const [showAddTask, setShowAddTask] = useState(false)
+
   //declare a state, and the func to update it, //i.e const(state, function_to_update_the_state)
   const [tasks, setTasks] = useState([
     {
@@ -53,8 +56,8 @@ const App = () => {
 
   return (
     <div className="container">
-      <Header />
-      <AddTask onAdd={addTask} />
+      <Header onAdd={() => setShowAddTask(!showAddTask)} />
+      {showAddTask && <AddTask onAdd={addTask} />}
       {tasks.length > 0 ? <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder} /> : 'No Task(s) to Show'}
     </div>
   )
