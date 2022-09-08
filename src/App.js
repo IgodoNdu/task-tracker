@@ -30,11 +30,15 @@ const App = () => {
     }
   ])
 
+  // Delete Task (Showing all tasks, excluding the task with the :id)
+  const deleteTask = (id) => {
+    setTasks(tasks.filter((task) => task.id !== id));
+  }
 
   return (
     <div className="container">
       <Header />
-      <Tasks tasks={tasks} />
+      <Tasks tasks={tasks} onDelete={deleteTask} />
     </div>
   )
 }
