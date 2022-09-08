@@ -6,6 +6,8 @@ import Header from './components/Header';
 import Tasks from './components/Tasks';
 //Import useState
 import { useState } from 'react'
+//import AddTask Component
+import AddTask from './components/AddTask';
 
 const App = () => {
   //declare a state, and the func to update it, //i.e const(state, function_to_update_the_state)
@@ -45,6 +47,7 @@ const App = () => {
   return (
     <div className="container">
       <Header />
+      <AddTask />
       {tasks.length > 0 ? <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder} /> : 'No Task(s) to Show'}
     </div>
   )
