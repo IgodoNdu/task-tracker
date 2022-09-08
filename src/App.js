@@ -35,10 +35,17 @@ const App = () => {
     setTasks(tasks.filter((task) => task.id !== id));
   }
 
+  //Toggle the preset reminder for each task
+  const toggleReminder = (id) => {
+    //Go through the tasks, and spread through each item, inverse the value of the preset reminder
+    //do this where the id of the current task == id passed in param
+    setTasks(tasks.map((task) => task.id === id ? { ...task, reminder: !task.reminder } : task))
+  }
+
   return (
     <div className="container">
       <Header />
-      {tasks.length > 0 ? <Tasks tasks={tasks} onDelete={deleteTask} /> : 'No Task(s) to Show'}
+      {tasks.length > 0 ? <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder} /> : 'No Task(s) to Show'}
     </div>
   )
 }
